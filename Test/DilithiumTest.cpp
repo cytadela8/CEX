@@ -7,6 +7,7 @@
 #include "../CEX/Kyber.h"
 #include "../CEX/SecureRandom.h"
 #include "../CEX/SecureVector.h"
+#include "GenericTest.h"
 
 namespace Test
 {
@@ -61,7 +62,11 @@ namespace Test
 		try
 		{
 			Initialize();
-
+			for (auto param : { DilithiumParameters::DLTMS1N256Q8380417, DilithiumParameters::DLTMS2N256Q8380417, DilithiumParameters::DLTMS3N256Q8380417 }) {
+				Dilithium sgn(param);
+				GenericTest().RunSgn(sgn);
+				OnProgress(std::string("DilithiumTest: Passed Generic ") + sgn.Name());
+			}
 			Integrity();
 			OnProgress(std::string("DilithiumTest: Passed NIST PQ Round 2 signature, message verification, public and private key known answer tests.."));
 			Kat();

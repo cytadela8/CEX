@@ -355,9 +355,9 @@ int32_t main()
 		PrintHeader("", "");
 #endif
 
-		if (TestConfirm("Press 'Y' then Enter to run Diagnostic Tests, any other key to cancel: "))
+		if (true)//(TestConfirm("Press 'Y' then Enter to run Diagnostic Tests, any other key to cancel: "))
 		{
-			PrintHeader("TESTING SYMMETRIC BLOCK CIPHERS");
+			/*PrintHeader("TESTING SYMMETRIC BLOCK CIPHERS");
 
 #if defined(CEX_HAS_AVX)
 			if (hasAesni)
@@ -447,19 +447,19 @@ int32_t main()
 			TestRun(new MemUtilsTest());
 			TestRun(new SimdWrapperTest());
 			PrintHeader("TESTING UTILITY CLASS FUNCTIONS");
-			TestRun(new UtilityTest());
+			TestRun(new UtilityTest());*/
 			PrintHeader("TESTING ASYMMETRIC CIPHERS");
-			TestRun(new ECDHTest());
-			TestRun(new KyberTest());
-			TestRun(new McElieceTest());
-			TestRun(new NewHopeTest());
-			TestRun(new NTRUPrimeTest());
+			//TestRun(new ECDHTest());
+			//TestRun(new KyberTest());
+			//TestRun(new McElieceTest());
+			//TestRun(new NewHopeTest());
+			//TestRun(new NTRUPrimeTest());
 			PrintHeader("TESTING ASYMMETRIC SIGNATURE SCHEMES");
 			TestRun(new DilithiumTest());
-			TestRun(new ECDSATest());
+			//TestRun(new ECDSATest());
 			TestRun(new RainbowTest());
 			TestRun(new SphincsPlusTest());
-			TestRun(new XMSSTest());
+			//TestRun(new XMSSTest());
 		}
 		else
 		{
@@ -468,48 +468,48 @@ int32_t main()
 
 		ConsoleUtils::WriteLine("");
 		ConsoleUtils::WriteLine("");
-
-#if defined(__AVX__)
-		if (TestConfirm("Press 'Y' then Enter to run SIMD Memory operations Speed Tests, any other key to cancel: "))
-		{
-			TestRun(new SimdSpeedTest());
-		}
-		else
-		{
-			ConsoleUtils::WriteLine("SIMD Memory Speed tests were Cancelled..");
-		}
-		ConsoleUtils::WriteLine("");
-#endif
-
-		if (TestConfirm("Press 'Y' then Enter to run Symmetric Cipher Speed Tests, any other key to cancel: "))
-		{
-			TestRun(new CipherSpeedTest());
-		}
-		else
-		{
-			ConsoleUtils::WriteLine("Cipher Speed tests were Cancelled..");
-		}
-		ConsoleUtils::WriteLine("");
-
-		if (TestConfirm("Press 'Y' then Enter to run Message Digest Speed Tests, any other key to cancel: "))
-		{
-			TestRun(new DigestSpeedTest());
-		}
-		else
-		{
-			ConsoleUtils::WriteLine("Digest Speed tests were Cancelled..");
-		}
-		ConsoleUtils::WriteLine("");
-
-		if (TestConfirm("Press 'Y' then Enter to run Asymmetric Cipher Speed Tests, any other key to cancel: "))
-		{
-			TestRun(new AsymmetricSpeedTest());
-		}
-		else
-		{
-			ConsoleUtils::WriteLine("Asymmetric Cipher Speed tests were Cancelled..");
-		}
-		ConsoleUtils::WriteLine("");
+//
+//#if defined(__AVX__)
+//		if (TestConfirm("Press 'Y' then Enter to run SIMD Memory operations Speed Tests, any other key to cancel: "))
+//		{
+//			TestRun(new SimdSpeedTest());
+//		}
+//		else
+//		{
+//			ConsoleUtils::WriteLine("SIMD Memory Speed tests were Cancelled..");
+//		}
+//		ConsoleUtils::WriteLine("");
+//#endif
+//
+//		if (TestConfirm("Press 'Y' then Enter to run Symmetric Cipher Speed Tests, any other key to cancel: "))
+//		{
+//			TestRun(new CipherSpeedTest());
+//		}
+//		else
+//		{
+//			ConsoleUtils::WriteLine("Cipher Speed tests were Cancelled..");
+//		}
+//		ConsoleUtils::WriteLine("");
+//
+//		if (TestConfirm("Press 'Y' then Enter to run Message Digest Speed Tests, any other key to cancel: "))
+//		{
+//			TestRun(new DigestSpeedTest());
+//		}
+//		else
+//		{
+//			ConsoleUtils::WriteLine("Digest Speed tests were Cancelled..");
+//		}
+//		ConsoleUtils::WriteLine("");
+//
+//		if (TestConfirm("Press 'Y' then Enter to run Asymmetric Cipher Speed Tests, any other key to cancel: "))
+//		{
+//			TestRun(new AsymmetricSpeedTest());
+//		}
+//		else
+//		{
+//			ConsoleUtils::WriteLine("Asymmetric Cipher Speed tests were Cancelled..");
+//		}
+//		ConsoleUtils::WriteLine("");
 
 		PrintHeader("Completed! Press any key to close..", "");
 		TestUtils::WaitForInput();

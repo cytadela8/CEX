@@ -7,6 +7,7 @@
 #include "../CEX/SecureRandom.h"
 #include "../CEX/SecureVector.h"
 #include "../CEX/SphincsPlus.h"
+#include "GenericTest.h"
 
 namespace Test
 {
@@ -61,7 +62,11 @@ namespace Test
 		try
 		{
 			Initialize();
-
+			for (auto param : { SphincsPlusParameters::SPXPS1S128SHAKE, SphincsPlusParameters::SPXPS2S192SHAKE, SphincsPlusParameters::SPXPS3S256SHAKE }) {
+				SphincsPlus sgn(param);
+				GenericTest().RunSgn(sgn);
+				OnProgress(std::string("SphincsPlusTest: Passed Generic ") + sgn.Name());
+			}
 			Integrity();
 			OnProgress(std::string("SphincsPlusTest: Passed NIST PQ Round 2 signature, message verification, public and private key known answer tests.."));
 			Kat();

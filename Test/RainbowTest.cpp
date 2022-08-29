@@ -7,6 +7,7 @@
 #include "../CEX/SecureRandom.h"
 #include "../CEX/SecureVector.h"
 #include "../CEX/Rainbow.h"
+#include "GenericTest.h"
 
 namespace Test
 {
@@ -61,7 +62,11 @@ namespace Test
 		try
 		{
 			Initialize();
-
+			for (auto param : { RainbowParameters::RNBWS1S128SHAKE256, RainbowParameters::RNBWS2S192SHAKE512, RainbowParameters::RNBWS3S256SHAKE512 }) {
+				Rainbow sgn(param);
+				GenericTest().RunSgn(sgn);
+				OnProgress(std::string("RainbowTest: Passed Generic ") + sgn.Name());
+			}
 			Integrity();
 			OnProgress(std::string("RainbowTest: Passed signature, message verification, public and private key known answer tests.."));
 			Kat();
